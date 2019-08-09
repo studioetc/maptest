@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Deck.gl GeoJSON LineString Example</title>
+
+    <script src="https://unpkg.com/deck.gl@^7.0.0/dist.min.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js"></script>
+
+    <style type="text/css">
+      body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+      }
+      #tooltip:empty {
+        display: none;
+      }
+      #tooltip {
+        font-family: Helvetica, Arial, sans-serif;
+        position: absolute;
+        padding: 4px;
+        margin: 8px;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        max-width: 300px;
+        font-size: 10px;
+        z-index: 9;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body>
+  </body>
+
+  <script type="text/javascript">
+
+    const {DeckGL, LineLayer} = deck;
+
+    new DeckGL({
+      mapboxApiAccessToken: 'pk.eyJ1IjoiYmVuLWhvdW5zbG93IiwiYSI6ImNqdzF0aTR0cTBwa280NW1tbXN2NDh2Z2QifQ.gId14UHGg-LpeqTqqu7k6g',
+      mapStyle: 'mapbox://styles/mapbox/dark-v9',
+      latitude: 51.477045,
+      longitude: -0.459835,
+      zoom: 8,
+      minZoom: 7,
+      maxZoom: 9,
+      pitch: 50,
+      bearing: 0,
+      views: new MapView(),
+      layers: [
+        new GeoJsonLayer({
+          //data: 'http://localhost/3DMapsPlayground/Deck.gl/GeoJsonLineString/LHR/LHR%20Operations-10.geojson',
+          data: 'http://localhost/3DMapsPlayground/Deck.gl/GeoJsonLineString/LHR/LHR Operations 1-Feb-2019.geojson',
+          getLineColor: [140,84,255],
+          getLineWidth: 1,
+          //minZoom: 7,
+          //maxZoom: 9,
+        })
+      ]
+    });
+    
+  </script>
+</html>
